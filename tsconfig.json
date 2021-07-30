@@ -2,5 +2,6 @@
   "compilerOptions": {
     "strict": true
   },
+  "include":["./src/@types/index.d.ts"],
   "extends": "expo/tsconfig.base"
 }
