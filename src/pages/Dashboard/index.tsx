@@ -72,6 +72,12 @@ export default function Dashboard() {
     setResult('Empate');
   }, [computer, player]);
 
+  const clear = useCallback(()=>{
+    setComputer(0);
+    setPlayer(0);
+    setResult('');
+  },[]);
+  
   return (
     <KeyboardAvoidingView
       style={{ flex: 1, backgroundColor: "#292f3f" }}
@@ -95,7 +101,7 @@ export default function Dashboard() {
       <Result>
         <Text>{result}</Text>
         <Text>computador {computer} X {player} jogador</Text>
-        <Button onPress={() =>  console.log("stone")} title="Zerar" />
+        <Button onPress={() => clear()} title="Zerar" />
       </Result>
     </KeyboardAvoidingView>
   );
