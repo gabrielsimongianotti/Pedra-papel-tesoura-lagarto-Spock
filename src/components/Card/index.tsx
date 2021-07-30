@@ -1,14 +1,18 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer } from '@react-navigation/native';
+import {  TouchableOpacityProps } from 'react-native';
+import { ImagePoster, Container } from "./styles";
 
-export default function Card() {
+interface CardProps extends TouchableOpacityProps {
+  src: string;
+}
+
+export default function Card({
+  src,
+  ...rest
+}: CardProps) {
   return (
-    <>
-      <StatusBar style="auto" />
-      <NavigationContainer>
-        
-      </NavigationContainer>
-    </>
+    <Container {...rest}>
+      <ImagePoster source={src} />
+    </Container>
   );
 }
