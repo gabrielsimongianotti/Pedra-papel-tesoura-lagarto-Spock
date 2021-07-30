@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 
 import { Options, Container, Result, Text } from './styles';
@@ -17,6 +17,61 @@ export default function Dashboard() {
   const [player, setPlayer] = useState(0);
   const [result, setResult] = useState("");
 
+  const conpativeResult = useCallback((jokenpoSelect: string) => {
+    const optionsComputer = ["stone", "paper", "scissors", "lizard", "spock"];
+    const randomNumber = Math.floor(Math.random() * optionsComputer.length);
+
+    if (jokenpoSelect === "stone") {
+      if (optionsComputer[randomNumber] === "lizard" || optionsComputer[randomNumber] === "scissors") {
+        setResult('Você venceu');
+        setPlayer(player + 1);
+        return;
+      };
+      if (optionsComputer[randomNumber] === "paper" || optionsComputer[randomNumber] === "spock") {
+        setResult('Você perdeu');
+        setComputer(computer + 1);
+        return;
+      };
+    }
+    if (jokenpoSelect === "paper") {
+      if (optionsComputer[randomNumber] === "stone" || optionsComputer[randomNumber] === "spock") {
+        setResult('Você venceu');
+        setPlayer(player + 1);
+        return;
+      };
+      if (optionsComputer[randomNumber] === "scissors" || optionsComputer[randomNumber] === "lizard") {
+        setResult('Você perdeu');
+        setComputer(computer + 1);
+        return;
+      };
+    }
+    if (jokenpoSelect === "lizard") {
+      if (optionsComputer[randomNumber] === "paper" || optionsComputer[randomNumber] === "spock") {
+        setResult('Você venceu');
+        setPlayer(player + 1);
+        return;
+      };
+      if (optionsComputer[randomNumber] === "scissors" || optionsComputer[randomNumber] === "stone") {
+        setResult('Você perdeu');
+        setComputer(computer + 1);
+        return;
+      };
+    }
+    if (jokenpoSelect === "spock") {
+      if (optionsComputer[randomNumber] === "scissors" || optionsComputer[randomNumber] === "spock") {
+        setResult('Você venceu');
+        setPlayer(player + 1);
+        return;
+      };
+      if (optionsComputer[randomNumber] === "lizard" || optionsComputer[randomNumber] === "papel") {
+        setResult('Você perdeu');
+        setComputer(computer + 1);
+        return;
+      };
+    }
+    setResult('Empate');
+  }, [computer, player]);
+
   return (
     <KeyboardAvoidingView
       style={{ flex: 1, backgroundColor: "#292f3f" }}
@@ -29,11 +84,11 @@ export default function Dashboard() {
       >
         <Container>
           <Options horizontal={true}>
-            <Card onPress={() => console.log("stone")} src={stone} />
-            <Card onPress={() => console.log("paper")} src={paper} />
-            <Card onPress={() => console.log("scissors")} src={scissors} />
-            <Card onPress={() => console.log("lizard")} src={lizard} />
-            <Card onPress={() => console.log("spock")} src={spock} />
+            <Card onPress={() => conpativeResult("stone")} src={stone} />
+            <Card onPress={() => conpativeResult("paper")} src={paper} />
+            <Card onPress={() => conpativeResult("scissors")} src={scissors} />
+            <Card onPress={() => conpativeResult("lizard")} src={lizard} />
+            <Card onPress={() => conpativeResult("spock")} src={spock} />
           </Options>
         </Container>
       </ScrollView>
