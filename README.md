@@ -1,42 +1,17 @@
-# React Native School TypeScript Expo Template
 
-A simple Expo template with the following features:
+### Installation
 
-- All TypeScript
-- Eslint & Prettier configured
-- React Navigation v5
-- Testing Configured
-- Simple project structure
-- Small component library to get started with
+Dillinger requires [Node.js](https://nodejs.org/) v12+ to run.
 
-It's easy to create a project, strip out the few components included, and still have the architecture in place to quickly start building an app.
+Install the dependencies and devDependencies and start the app.
 
-## Usage
-
-> Be sure to have the [Expo CLI](https://docs.expo.io/workflow/expo-cli/) installed.
-
-```bash
-expo init --template @react-native-school/expo-typescript-template
+```sh
+$ yarn
+$ yarn start
 ```
 
-- Run on iOS: `yarn ios` or `npm run ios`
-- Run on Android: `yarn android` or `npm run android`
-- Run on Web: `yarn web` or `npm run web`
-- Compile TypeScript: `yarn tsc`
-- Run Tests: `yarn test` or `npm run test`
-- Lint Code: `yarn lint` or `npm run lint`
-- Format Code: `yarn format` or `npm run format`
-
-## Screenshots
-
-List Screen
-![List Screen](./assets/screenshots/list.png)
-
-Text Screen
-![Text Screen](./assets/screenshots/text.png)
-
-Form Screen
-![Form Screen](./assets/screenshots/form.png)
-
-Button Screen
-![Button Screen](./assets/screenshots/button.png)
+### Test
+Is create a file with information of tests in coverage/lcov-report/index.html, open to see relatorys of tests
+```sh
+$ yarn test
+```
