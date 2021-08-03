@@ -11,9 +11,9 @@ export const Container = styled.View`
     align-items: center;
     justify-content: center;
     padding: 20px;
-    margin: 20px 20px 0px 20px
+    margin: 20px 20px 0px 20px;
     background: #1f232f;
-    border-radius: 20;
+    border-radius: 20px;
 `;
 
 export const Text = styled.Text`
@@ -24,10 +24,9 @@ export const Text = styled.Text`
 
 
 export const Result = styled.View`
-    width: calc(100%-20px);
-    margin: 20px
+    align-items: center;  
+    padding: 20px;
+    margin: 20px;
     background: #1f232f;
-    border-radius: 20;
-    text-align: center;
-    justify-content: center;
+    border-radius: 20px;
 `;
